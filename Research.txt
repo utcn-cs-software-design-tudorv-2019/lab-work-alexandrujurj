@@ -1,0 +1,26 @@
+- layers sunt un mod tipic de ati organiza codul. 
+Acestea nu pot functiona singure pe un calculator sau pe un proces sau etc, sunt mai mult un mod de a organiza codul
+- un tier mai exact este unde codul ruleaza
+- layers sunt "similar sheets/strata" puse una deasupra celeilalte in succesiune
+- tiers sunt "similar sheets/strata" puse una deasupra celeilalte in succesiune si fiecare nivel succesiv fiind 
+- beneficiile principale ale layers sunt: abstractizare, isolare, performanta, testabilitate.
+- beneficiile principale ale unui tier sunt: -mentenabilitate(pentru ca fiecare "tier" este independent de celelalte, modificarile si update-urile nu vor modifica toata aplicatia
+											 -scalabilitate
+											 -flexibilitate(deoarece putem modifica fiecare tier independent)
+											 -accesibilitate 
+
+
+Securitatea in layere:
+		- cand folosim SQL server este mai bine sa folosim autentificarea windows pentru a implementa un "subsystem model".
+		- cand stocam parolele este mai bine sa folosim hashing in loc de versiunea criptata.
+		- in unele aplicatii web in care componente de prezentare acceseaza componentele din business in mod sincron, 
+		  e recomandat sa punemlayerele de business si prezentare pe acelasi tier pentru a maximiza performanta, 
+		  dar este posibil din motive de securitate savnecesite un tratat de incredere intre ele
+
+		- in cazul unei aplicatii pentru multi clienti,in care procesarea interfetei utilizator se intampla pe desktop, 
+		din motive de securitate,este recomandat ca componentele de business sa se afle intr-un business tier diferit
+
+Logging:
+
+- pentru a evita crosscutting-ul codului cu codul din componentele din fiecaraui layer, 
+este important sa le indentificam si sa separam prin design componentele pentru a rezolva problemele unde este posibil
